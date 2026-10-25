@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All hotel facts live in `src/lib/hotel.ts`; only add data verified from the hotel's official site or confirmed by the hotel — unverified data stays hidden.
+- Hotel photos are Lovable Assets pointers in `src/assets/hotel/`, resolved via `photo(name)`.
+- Public site is Arabic-first RTL (`dir="rtl"` on <html>); SEO/GEO JSON-LD is emitted from each route's `head()`.

@@ -1,45 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { services, photo } from "@/lib/hotel";
-import { tours } from "@/lib/tours";
+import { Coffee, Plane, Shirt, Compass, ArrowRight } from "lucide-react";
+import { services, photo, whatsappLink } from "@/lib/hotel";
 import { pageMeta } from "@/lib/seo";
-import { PageHeader } from "@/components/site/SiteChrome";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: pageMeta(
-      "الخدمات والرحلات | ذا سكوير بوتيك أوتيل",
-      "فطار يومي، توصيل مجاني من المطار للإقامات ٣ ليالي أو أكتر، ورحلات للأهرامات وسقارة والإسكندرية والنيل من وسط البلد.",
-    ),
-  }),
-  component: ServicesPage,
-});
-
-function ServicesPage() {
-  return (
-    <>
-      <PageHeader eyebrow="أكتر من مجرد غرفة" title="الخدمات والرحلات" intro="هدفنا نخلي رحلتك لمصر كلها تجربة متتنسيش، مش بس الإقامة." />
-      <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2">
-        {services.map((s) => (
-          <div key={s.title} className="rounded-lg border bg-card p-6">
-            <h2 className="text-xl text-primary">{s.title}</h2>
-            <p className="mt-2 text-muted-foreground">{s.body}</p>
-          </div>
-        ))}
-      </div>
-      <section className="mx-auto mt-16 grid max-w-6xl gap-10 px-4 md:grid-cols-[1fr_1.4fr]">
-        <img src={photo("065A8788-1")} alt="فطار الفندق" loading="lazy" className="aspect-square w-full rounded-lg object-cover" />
-        <div>
-          <h2 className="text-3xl text-primary">الرحلات اللي بننظمها</h2>
-          <p className="mt-2 text-muted-foreground">الأسعار والمواعيد بتتأكد مع الفريق حسب عدد الأفراد والتاريخ.</p>
-          <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-            {tours.map((t) => (
-              <li key={t.slug}>
-                <Link to="/tours/$slug" params={{ slug: t.slug }} className="block rounded-full bg-pill px-4 py-3 text-sm text-pill-foreground hover:bg-lime">{t.nameAr}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </>
-  );
-}
+import { Button } from "@/components/ui/button";
+export const Route=createFileRoute('/services')({head:()=>({meta:pageMeta('Services & airport transfers | The Square Boutique Hotel','Daily breakfast, airport transfers for stays of 3 nights or more, laundry and private tours. Plan your stay in Downtown Cairo.')}),component:ServicesPage});
+const icons=[Plane,Coffee,Shirt,Compass];
+function ServicesPage(){return <>
+ <header className="mx-auto max-w-6xl px-5 pb-12 pt-32 md:pt-40"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><h1 className="text-5xl md:text-7xl">A little care.<br /><em>A better stay.</em></h1><p className="max-w-sm leading-7 text-muted-foreground">From your first morning coffee to your next adventure, make yourself at home in Cairo.</p></div></header>
+ <div className="mx-auto max-w-6xl px-5"><img src={photo('065A8788-1')} alt="Breakfast served at The Square Boutique Hotel" className="max-h-[520px] w-full rounded-lg object-cover aspect-[16/9]" />
+ <section className="grid gap-x-16 md:grid-cols-2">{services.map((s,i)=>{const Icon=icons[i];return <article key={s.title} className="border-b py-9"><div className="flex items-center gap-4">{Icon&&<Icon className="size-7 text-primary"/>}<h2 className="text-2xl">{s.title}</h2></div><p className="mt-4 max-w-md leading-7 text-muted-foreground">{s.body}</p><Button asChild variant="link" className="mt-3 px-0">{i===3?<Link to="/tours">Explore experiences<ArrowRight/></Link>:<a href={whatsappLink(`Hello, I would like to ask about ${s.title.toLowerCase()} for my stay.`)} target="_blank" rel="noreferrer">Ask reservations<ArrowRight/></a>}</Button></article>})}</section></div>
+ <section className="mt-16 bg-secondary px-5 py-16"><div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:items-center"><div><h2 className="text-4xl">The rest of Egypt<br /><em>is waiting.</em></h2><p className="mt-5 max-w-md leading-7 text-muted-foreground">Pair your stay with the pyramids, a Nile cruise or a day in Alexandria. The team can help arrange your itinerary.</p><Button asChild className="mt-7 rounded-full"><Link to="/tours">Find your next experience<ArrowRight/></Link></Button></div><img src={photo('065A8786-1')} alt="Hotel balcony overlooking Talaat Harb Square" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover"/></div></section>
+ </>}

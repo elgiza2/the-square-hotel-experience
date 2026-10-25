@@ -12,4 +12,6 @@
 ## Project rules
 - All hotel facts live in `src/lib/hotel.ts`; only add data verified from the hotel's official site or confirmed by the hotel — unverified data stays hidden.
 - Hotel photos are Lovable Assets pointers in `src/assets/hotel/`, resolved via `photo(name)`.
-- Public site is Arabic-first RTL (`dir="rtl"` on <html>); SEO/GEO JSON-LD is emitted from each route's `head()`.
+- Public language and document direction must match the current user-approved language; SEO/GEO metadata is emitted from each route’s `head()`.
+- Public room/tour listings use shared photo-only cards; listing pages own their layout and filters. Keep verified translated hotel facts in hotel.ts and tour programmes in tours.ts.
+- Booking remains a WhatsApp request pending hotel confirmation; do not present client-only flows as confirmed reservations or AI operations.

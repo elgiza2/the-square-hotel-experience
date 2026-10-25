@@ -48,19 +48,19 @@ export type Room = {
 };
 
 const commonFacilities = [
-  "فطار يومي مشمول",
-  "تكييف وتحكم في الحرارة",
-  "شاشة LCD",
-  "ميني بار",
-  "واي فاي مجاني",
-  "سشوار",
-  "مستلزمات حمام",
-  "مكواة وطاولة كيّ (عند الطلب)",
-  "غلاية شاي وقهوة",
-  "خزنة",
-  "تليفون",
-  "مكتب للكتابة",
-  "خدمة الغرف",
+  "Daily breakfast included",
+  "Air conditioning",
+  "LCD television",
+  "Minibar",
+  "Free Wi-Fi",
+  "Hair dryer",
+  "Bathroom amenities",
+  "Iron and ironing board on request",
+  "Tea and coffee kettle",
+  "Safe",
+  "Telephone",
+  "Writing desk",
+  "Room service",
 ];
 
 export const rooms: Room[] = [
@@ -68,10 +68,10 @@ export const rooms: Room[] = [
     slug: "double-room-city-view",
     nameAr: "غرفة دبل بإطلالة على المدينة",
     nameEn: "Double Room With City View",
-    summary: "غرفة ببلكونة مطلة مباشرة على ميدان طلعت حرب، فيها كرسي معلّق وترابيزة صغيرة لفطار الصبح فوق الميدان.",
-    beds: "سريرين",
-    view: "بلكونة مطلة على الميدان",
-    highlights: ["بلكونة على ميدان طلعت حرب", "سريرين", "حمام خاص"],
+    summary: "A private balcony overlooking Talaat Harb Square, with a hanging chair and a small table for breakfast above the city.",
+    beds: "Two beds",
+    view: "Square-view balcony",
+    highlights: ["Talaat Harb Square balcony", "Two beds", "Private bathroom"],
     facilities: commonFacilities,
     photos: [
       "065A8786-1", "065A8800-1", "065A8766-1", "065A8865-1", "065A8871-1",
@@ -82,10 +82,10 @@ export const rooms: Room[] = [
     slug: "superior-double-room",
     nameAr: "غرفة سوبيريور دبل",
     nameEn: "Superior Double Room",
-    summary: "غرفة دبل أنيقة بسرير كبير وشباك مطل على ميدان طلعت حرب، وسط مباني وسط البلد التاريخية.",
-    beds: "سرير دبل",
-    view: "شباك مطل على الميدان",
-    highlights: ["شباك على ميدان طلعت حرب", "سرير دبل", "حمام خاص"],
+    summary: "An elegant double room with a large bed and a window overlooking Talaat Harb Square and Downtown Cairo’s historic buildings.",
+    beds: "Double bed",
+    view: "Square-view window",
+    highlights: ["Talaat Harb Square window", "Double bed", "Private bathroom"],
     facilities: commonFacilities,
     photos: ["wa1", "wa2"],
   },
@@ -93,10 +93,10 @@ export const rooms: Room[] = [
     slug: "standard-double-room",
     nameAr: "غرفة ستاندرد دبل",
     nameEn: "Standard Double Room",
-    summary: "غرفة هادية ومريحة بسرير دبل، مناسبة للإقامة القصيرة واستكشاف وسط البلد مشي.",
-    beds: "سرير دبل",
-    view: "داخلية",
-    highlights: ["سرير دبل", "حمام خاص", "فطار مشمول"],
+    summary: "A quiet, comfortable double room for a short stay and exploring Downtown Cairo on foot.",
+    beds: "Double bed",
+    view: "Interior view",
+    highlights: ["Double bed", "Private bathroom", "Breakfast included"],
     facilities: commonFacilities,
     photos: ["065A8897", "065A8925", "065A8930", "065A8943", "065A8953"],
   },
@@ -107,10 +107,10 @@ export function getRoom(slug: string) {
 }
 
 export const services = [
-  { title: "توصيل مجاني من وإلى المطار", body: "للحجوزات ٣ ليالي أو أكتر. لازم تبلّغ الحجوزات قبل ميعاد الوصول بـ ٤٨ ساعة." },
-  { title: "فطار يومي", body: "الفطار مشمول مع كل الغرف، ويتقدم في منطقة الفطار بالفندق." },
-  { title: "خدمة غسيل الملابس", body: "خدمة إضافية متاحة للضيوف عند الطلب." },
-  { title: "تنظيم الرحلات", body: "الفريق بيساعدك ترتب برنامجك في مصر حسب وقتك، من أول التخطيط لحد ما تمشي." },
+  { title: "Airport transfers", body: "Complimentary airport transfers for stays of 3 nights or more. Notify reservations at least 48 hours before arrival." },
+  { title: "Daily breakfast", body: "Breakfast is included with every room and served in the hotel’s breakfast area." },
+  { title: "Laundry service", body: "An additional service available to guests on request." },
+  { title: "Private tours", body: "Let the team arrange your time in Egypt, from planning your itinerary to your departure." },
 ];
 
 // Tour names from the hotel's official tours list. Prices hidden until confirmed.
@@ -135,19 +135,19 @@ export const tours = [
 
 // Approximate distances published by third-party listings (Booking.com / KAYAK).
 export const nearby = [
-  { name: "ميدان التحرير", distance: "حوالي ٥٠٠ متر" },
-  { name: "المتحف المصري", distance: "حوالي ٥٠٠ – ٧٠٠ متر" },
-  { name: "كوبري قصر النيل", distance: "حوالي ١ كم" },
-  { name: "برج القاهرة", distance: "حوالي ١.٥ – ٢ كم" },
-  { name: "خان الخليلي", distance: "حوالي ٢.٣ كم" },
-  { name: "مطار القاهرة الدولي", distance: "حوالي ١٦ كم" },
+  { name: "Tahrir Square", distance: "Approx. 500 m" },
+  { name: "Egyptian Museum", distance: "Approx. 500–700 m" },
+  { name: "Qasr El Nil Bridge", distance: "Approx. 1 km" },
+  { name: "Cairo Tower", distance: "Approx. 1.5–2 km" },
+  { name: "Khan El Khalili", distance: "Approx. 2.3 km" },
+  { name: "Cairo International Airport", distance: "Approx. 16 km" },
 ];
 
 export const faqs = [
-  { q: "الفندق فين بالظبط؟", a: "في ٣ ميدان طلعت حرب، الدور الرابع، في قلب وسط البلد بالقاهرة، على مسافة مشي من ميدان التحرير والمتحف المصري." },
-  { q: "هل الفطار مشمول؟", a: "أيوه، الفطار اليومي مشمول مع كل الغرف." },
-  { q: "هل فيه توصيل من المطار؟", a: "التوصيل من وإلى المطار مجاني للحجوزات ٣ ليالي أو أكتر، بشرط تبلّغ الحجوزات قبل الوصول بـ ٤٨ ساعة." },
-  { q: "هل فيه غرف بإطلالة على الميدان؟", a: "أيوه. غرفة الدبل بإطلالة على المدينة فيها بلكونة على ميدان طلعت حرب، وغرفة السوبيريور فيها شباك مطل على الميدان." },
-  { q: "أحجز إزاي؟", a: "ابعت طلب الحجز من صفحة الغرفة على واتساب، أو اتصل بالفندق أو ابعت إيميل، وفريق الحجوزات هيأكدلك التوافر والسعر." },
-  { q: "هل الفندق بيرتب رحلات؟", a: "أيوه، الفندق بيرتب رحلات يومية في القاهرة والجيزة والإسكندرية وكروز نيلي." },
+  { q: "Where is the hotel?", a: "At 3 Talaat Harb Square, 4th Floor, in Downtown Cairo, within walking distance of Tahrir Square and the Egyptian Museum." },
+  { q: "Is breakfast included?", a: "Yes. Daily breakfast is included with every room." },
+  { q: "Are airport transfers available?", a: "Airport transfers are complimentary for stays of 3 nights or more. Please notify reservations at least 48 hours before arrival." },
+  { q: "Do any rooms overlook the square?", a: "Yes. The Double Room With City View has a balcony overlooking Talaat Harb Square. The Superior Double Room has a square-view window." },
+  { q: "How do I book?", a: "Send a booking request from a room page via WhatsApp, call or email the hotel. Reservations will confirm availability and the price." },
+  { q: "Can the hotel arrange tours?", a: "Yes. The hotel arranges day tours in Cairo, Giza and Alexandria, as well as Nile cruises." },
 ];

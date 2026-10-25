@@ -29,14 +29,14 @@ const privateCar = { label: "المواصلات", value: "عربية خاصة" }
 const water = { label: "مياه معدنية", value: "مجانًا" };
 
 export const categories: Record<Tour["category"], string> = {
-  pyramids: "الأهرامات",
-  cairo: "القاهرة",
-  nile: "النيل",
-  adventure: "مغامرات",
-  egypt: "مصر",
+  pyramids: "Pyramids",
+  cairo: "Cairo",
+  nile: "Nile",
+  adventure: "Adventure",
+  egypt: "Beyond Cairo",
 };
 
-export const tours: Tour[] = [
+const publishedTours: Tour[] = [
   {
     slug: "cairo-stop-over",
     nameAr: "القاهرة في يومين",
@@ -322,3 +322,533 @@ export const tours: Tour[] = [
 export function getTour(slug: string) {
   return tours.find((t) => t.slug === slug);
 }
+
+// English translations of the hotel’s published tour descriptions.
+const englishCopy = [
+  {
+    "slug": "cairo-stop-over",
+    "duration": "2 days / 1 night",
+    "tagline": "Two days. The essential Cairo experience.",
+    "overview": [
+      "A two-day programme combining Giza and Saqqara, the Egyptian Museum, dinner on the Nile, Old Cairo and Khan El Khalili.",
+      "A private car and guide help you make the most of a short Cairo stay."
+    ],
+    "highlights": [
+      "Giza Pyramids and Sphinx",
+      "Step Pyramid at Saqqara",
+      "Nile buffet dinner and entertainment",
+      "Egyptian Museum",
+      "Citadel and Mohamed Ali Mosque",
+      "Coptic Cairo and Khan El Khalili"
+    ],
+    "includes": [
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      },
+      {
+        "label": "Meals",
+        "value": "Lunch and cruise buffet dinner"
+      },
+      {
+        "label": "Transport",
+        "value": "Private car"
+      }
+    ],
+    "itinerary": [
+      {
+        "title": "Day 1 · Giza, Saqqara and the Nile",
+        "items": [
+          "Hotel pickup for the pyramids of Khufu, Khafre and Menkaure.",
+          "Visit the Sphinx and Valley Temple.",
+          "Lunch with Egyptian koshary.",
+          "Visit the Step Pyramid at Saqqara, then return to the hotel.",
+          "At 7 pm, pickup for a Nile buffet dinner with belly dancing, Tanoura and music."
+        ]
+      },
+      {
+        "title": "Day 2 · The museum and Old Cairo",
+        "items": [
+          "Hotel pickup with your guide for the Egyptian Museum.",
+          "Visit Mohamed Ali Mosque inside the Citadel.",
+          "Lunch at a local restaurant.",
+          "Visit the Hanging Church, Ben Ezra Synagogue, St. Barbara and Abu Serga in Coptic Cairo.",
+          "Explore Khan El Khalili, then return to the hotel."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "cairo-over-day",
+    "duration": "Full day",
+    "tagline": "Cairo’s highlights, in one day.",
+    "overview": [
+      "Begin at the Giza Pyramids, continue to the Egyptian Museum, and finish in Old Cairo and Khan El Khalili."
+    ],
+    "highlights": [
+      "Giza Pyramids",
+      "Egyptian Museum",
+      "Old Cairo",
+      "Khan El Khalili"
+    ],
+    "includes": [
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      },
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      },
+      {
+        "label": "Mineral water",
+        "value": "Included"
+      },
+      {
+        "label": "Transport",
+        "value": "Private"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "full-day-gem-giza-pyramids",
+    "duration": "Full day",
+    "tagline": "The pyramids and the Grand Egyptian Museum.",
+    "overview": [
+      "Explore the history of the Giza Pyramids and the Sphinx, then continue to the Grand Egyptian Museum."
+    ],
+    "highlights": [
+      "Giza Pyramids",
+      "Sphinx",
+      "Grand Egyptian Museum (GEM)"
+    ],
+    "includes": [
+      {
+        "label": "Language",
+        "value": "English / Spanish"
+      },
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      },
+      {
+        "label": "Transport",
+        "value": "Private car"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "giza-saqqara-grand-egyptian-museum",
+    "duration": "Full day",
+    "tagline": "Ancient wonders, from Giza to Saqqara.",
+    "overview": [
+      "Visit the Giza Pyramids and Sphinx, the Step Pyramid at Saqqara, and the Grand Egyptian Museum in one day."
+    ],
+    "highlights": [
+      "Giza Pyramids and Sphinx",
+      "Saqqara Step Pyramid",
+      "Grand Egyptian Museum"
+    ],
+    "includes": [
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      },
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      },
+      {
+        "label": "Mineral water",
+        "value": "Included"
+      },
+      {
+        "label": "Transport",
+        "value": "Private"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "half-day-giza-pyramids",
+    "duration": "Half day",
+    "tagline": "A private visit to the Giza Pyramids.",
+    "overview": [
+      "Hotel pickup for the pyramids of Khufu, Khafre and Menkaure, followed by the Sphinx and Valley Temple.",
+      "Explore these remarkable monuments on a private tour."
+    ],
+    "highlights": [
+      "Khufu, Khafre and Menkaure pyramids",
+      "Sphinx",
+      "Valley Temple"
+    ],
+    "includes": [
+      {
+        "label": "Guide",
+        "value": "Private guide"
+      },
+      {
+        "label": "Transport",
+        "value": "Private car from and to the hotel"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "egyptian-museum-giza-pyramids",
+    "duration": "Full day",
+    "tagline": "The pyramids and the treasures of Tahrir.",
+    "overview": [
+      "Visit the Giza Pyramids and Sphinx, then continue to the Egyptian Museum in Tahrir Square."
+    ],
+    "highlights": [
+      "Giza Pyramids",
+      "Sphinx",
+      "Egyptian Museum"
+    ],
+    "includes": [],
+    "itinerary": null
+  },
+  {
+    "slug": "giza-saqqara-pyramids",
+    "duration": "Full day",
+    "tagline": "Discover Giza and the Step Pyramid.",
+    "overview": [
+      "Visit the Giza Pyramids and the Sphinx, then explore the Step Pyramid at Saqqara."
+    ],
+    "highlights": [
+      "Giza Pyramids",
+      "Sphinx",
+      "Saqqara Step Pyramid"
+    ],
+    "includes": [
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      },
+      {
+        "label": "Transport",
+        "value": "Private car"
+      },
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "giza-saqqara-memphis-dahshur",
+    "duration": "Full day",
+    "tagline": "A day through the ancient sites around Cairo.",
+    "overview": [
+      "Visit the Giza Pyramids and Sphinx, the Step Pyramid at Saqqara, Memphis and Dahshur."
+    ],
+    "highlights": [
+      "Giza Pyramids and Sphinx",
+      "Saqqara Step Pyramid",
+      "Memphis, ancient Egypt’s first capital",
+      "Dahshur"
+    ],
+    "includes": [],
+    "itinerary": null
+  },
+  {
+    "slug": "saqqara-memphis-dahshur",
+    "duration": "Full day",
+    "tagline": "Explore beyond Giza.",
+    "overview": [
+      "Visit the Step Pyramid at Saqqara, Memphis and Dahshur on a day exploring the ancient sites around Cairo."
+    ],
+    "highlights": [
+      "Saqqara Step Pyramid",
+      "Memphis",
+      "Dahshur"
+    ],
+    "includes": [
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      },
+      {
+        "label": "Transport",
+        "value": "Private car"
+      },
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "old-cairo-egyptian-museum",
+    "duration": "Full day",
+    "tagline": "Ancient treasures and Cairo’s historic heart.",
+    "overview": [
+      "Discover ancient Egyptian artefacts at the Egyptian Museum, then visit the Citadel and Mohamed Ali Mosque.",
+      "Continue to Old Cairo, with its historic churches and Roman fortress."
+    ],
+    "highlights": [
+      "Egyptian Museum",
+      "Citadel",
+      "Mohamed Ali Mosque",
+      "Old Cairo and historic churches"
+    ],
+    "includes": [
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      },
+      {
+        "label": "Transport",
+        "value": "Private car"
+      },
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "alexandria-day-tour",
+    "duration": "12 hours",
+    "tagline": "A day beside the Mediterranean.",
+    "overview": [
+      "Explore the rock-cut Catacombs of Kom El Shoqafa, Roman temple ruins, Qaitbay Citadel and the Library of Alexandria, with a seafood lunch beside the sea."
+    ],
+    "highlights": [
+      "Catacombs of Kom El Shoqafa",
+      "Qaitbay Citadel",
+      "Library of Alexandria",
+      "Seaside seafood lunch"
+    ],
+    "includes": [
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      },
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      },
+      {
+        "label": "Transport",
+        "value": "Private"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "nile-dinner-cruise",
+    "duration": "2 hours",
+    "tagline": "Dinner, music and Cairo after dark.",
+    "overview": [
+      "A two-hour Nile cruise with an open buffet dinner, belly dancing, folklore performances and oriental music.",
+      "Watch Downtown Cairo’s lights from the water as you dine."
+    ],
+    "highlights": [
+      "Buffet dinner",
+      "Belly dancing and Tanoura",
+      "Oriental music",
+      "Cairo’s night-time skyline"
+    ],
+    "includes": [
+      {
+        "label": "Meals",
+        "value": "Buffet dinner"
+      },
+      {
+        "label": "Transport",
+        "value": "Private"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "felucca-ride-nile",
+    "duration": "By arrangement",
+    "tagline": "Set sail on a quieter side of Cairo.",
+    "overview": [
+      "Take a relaxing ride on a traditional Egyptian sailing boat. Choose the warmth of daytime, sunrise, sunset or Cairo’s lights at night.",
+      "A felucca offers a break from the bustle of the city. Birthday arrangements are also available through the team."
+    ],
+    "highlights": [
+      "Sunrise or sunset on the Nile",
+      "Cairo’s night-time lights",
+      "Birthday arrangements available"
+    ],
+    "includes": [
+      {
+        "label": "Meals",
+        "value": "Not included"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "nile-cruise-aswan-luxor",
+    "duration": "4 days",
+    "tagline": "The temples of Upper Egypt, by river.",
+    "overview": [
+      "Travel from Cairo to Aswan or Luxor by plane or train for a four-day Nile cruise. Relax aboard while exploring Upper Egypt.",
+      "The published programme includes Karnak, Luxor Temple, the Valley of the Kings, Hatshepsut Temple, Kom Ombo, Edfu and Philae."
+    ],
+    "highlights": [
+      "Philae Temple and High Dam",
+      "Kom Ombo and Edfu",
+      "Valley of the Kings and Hatshepsut Temple",
+      "Karnak and Luxor Temple"
+    ],
+    "includes": [
+      {
+        "label": "Accommodation",
+        "value": "5-star cruise"
+      },
+      {
+        "label": "Arrival / departure",
+        "value": "Aswan / Luxor"
+      },
+      {
+        "label": "Meals",
+        "value": "Full board"
+      },
+      {
+        "label": "Transport",
+        "value": "Private car"
+      }
+    ],
+    "itinerary": [
+      {
+        "title": "Day 1 · Arrival in Aswan",
+        "items": [
+          "Meet your guide at the airport or train station.",
+          "Board the cruise before lunch.",
+          "Visit the High Dam, Unfinished Obelisk and Philae Temple.",
+          "Lunch, dinner and overnight aboard in Aswan."
+        ]
+      },
+      {
+        "title": "Day 2 · Kom Ombo and Edfu",
+        "items": [
+          "Sail to Kom Ombo with breakfast aboard.",
+          "Visit Kom Ombo Temple, then sail to Edfu.",
+          "Lunch aboard and a visit to Edfu Temple.",
+          "Sail to Luxor, arriving late, with dinner aboard."
+        ]
+      },
+      {
+        "title": "Day 3 · Luxor",
+        "items": [
+          "Breakfast aboard.",
+          "Explore the West Bank: Valley of the Kings, Hatshepsut Temple and Colossi of Memnon.",
+          "Lunch and dinner aboard."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "camel-riding-giza-pyramids",
+    "duration": "2 hours",
+    "tagline": "Sunrise or sunset in the Giza desert.",
+    "overview": [
+      "Ride a camel in the desert near the Giza Pyramids at sunrise or sunset. A horse option is also available."
+    ],
+    "highlights": [
+      "Two hours in the desert",
+      "Sunrise or sunset",
+      "Horse option available"
+    ],
+    "includes": [
+      {
+        "label": "Guide",
+        "value": "English / Spanish"
+      },
+      {
+        "label": "Meals",
+        "value": "Lunch"
+      },
+      {
+        "label": "Mineral water",
+        "value": "Included"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "horse-riding-giza-pyramids",
+    "duration": "2 hours",
+    "tagline": "Arabian horses, with a pyramid backdrop.",
+    "overview": [
+      "Hotel pickup takes you to an open area near the pyramids at Nazlet El Samman for sunrise or sunset riding.",
+      "Experienced riders can ride an Arabian horse; beginners can enjoy the open desert too.",
+      "A specialist accompanies you throughout the two-hour experience."
+    ],
+    "highlights": [
+      "Arabian horses",
+      "Suitable for beginners",
+      "Accompanying specialist",
+      "Hotel pickup"
+    ],
+    "includes": [
+      {
+        "label": "Duration",
+        "value": "2 hours"
+      },
+      {
+        "label": "Transport",
+        "value": "Hotel pickup"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "quad-bike-giza-pyramids",
+    "duration": "By arrangement",
+    "tagline": "A different way to experience the pyramids.",
+    "overview": [
+      "Explore the desert around the Giza Pyramids on a quad bike, with time for photos and a departure arranged to suit your day."
+    ],
+    "highlights": [
+      "Giza desert",
+      "Pyramid photo opportunities",
+      "Flexible timing"
+    ],
+    "includes": [
+      {
+        "label": "Transport",
+        "value": "Private car"
+      }
+    ],
+    "itinerary": null
+  },
+  {
+    "slug": "sound-light-show-giza",
+    "duration": "Evening",
+    "tagline": "The pyramids, illuminated after dark.",
+    "overview": [
+      "Hotel pickup for the Sound & Light Show at the pyramids of Khufu, Khafre and Menkaure.",
+      "The show tells the story of the Sphinx, the construction of the pyramids and figures from ancient Egyptian history."
+    ],
+    "highlights": [
+      "Illuminated pyramids",
+      "The story of the Sphinx",
+      "Hotel pickup"
+    ],
+    "includes": [
+      {
+        "label": "Transport",
+        "value": "Hotel pickup"
+      }
+    ],
+    "itinerary": null
+  }
+];
+
+export const tours: Tour[] = publishedTours.map((tour) => {
+  const copy = englishCopy.find((item) => item.slug === tour.slug);
+  return copy ? { ...tour, ...copy, itinerary: copy.itinerary ?? undefined } : tour;
+});

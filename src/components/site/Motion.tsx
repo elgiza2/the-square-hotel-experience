@@ -39,12 +39,12 @@ export function SiteMotion() {
           gsap.to(el, { opacity: 0.15, duration: 0.9, yoyo: true, repeat: -1, ease: "sine.inOut", delay: Math.random() * 3, repeatDelay: 1 + Math.random() * 3 });
         });
         gsap.utils.toArray<HTMLElement>("[data-par]").forEach((el) => {
-          gsap.to(el, { y: Number(el.dataset.par) * 2, ease: "none", scrollTrigger: { trigger: el.closest("section") ?? el, start: "top top", end: "bottom top", scrub: true } });
+          gsap.to(el, { y: Number(el.dataset["par"]) * 2, ease: "none", scrollTrigger: { trigger: el.closest("section") ?? el, start: "top top", end: "bottom top", scrub: true } });
         });
         gsap.utils.toArray<HTMLElement>("[data-count]").forEach((el) => {
-          const to = Number(el.dataset.count);
-          const dec = Number(el.dataset.dec ?? 0);
-          const suf = el.dataset.suf ?? "";
+          const to = Number(el.dataset["count"]);
+          const dec = Number(el.dataset["dec"] ?? 0);
+          const suf = el.dataset["suf"] ?? "";
           const o = { p: 0 };
           gsap.to(o, {
             p: 1, duration: 2, ease: "power2.out",

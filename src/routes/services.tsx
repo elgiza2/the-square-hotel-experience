@@ -1,5 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { services, tours, photo, whatsappLink } from "@/lib/hotel";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { services, photo } from "@/lib/hotel";
+import { tours } from "@/lib/tours";
 import { pageMeta } from "@/lib/seo";
 import { PageHeader } from "@/components/site/SiteChrome";
 
@@ -32,10 +33,8 @@ function ServicesPage() {
           <p className="mt-2 text-muted-foreground">الأسعار والمواعيد بتتأكد مع الفريق حسب عدد الأفراد والتاريخ.</p>
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
             {tours.map((t) => (
-              <li key={t}>
-                <a href={whatsappLink(`مرحبًا، أحب أستفسر عن رحلة: ${t}`)} target="_blank" rel="noreferrer" className="block rounded-md border bg-card px-4 py-3 text-sm hover:border-primary">
-                  {t}
-                </a>
+              <li key={t.slug}>
+                <Link to="/tours/$slug" params={{ slug: t.slug }} className="block rounded-full bg-pill px-4 py-3 text-sm text-pill-foreground hover:bg-lime">{t.nameAr}</Link>
               </li>
             ))}
           </ul>

@@ -51,7 +51,7 @@ function RoomPage() {
   ].filter(Boolean).join("\n");
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pt-10">
+    <div className="mx-auto max-w-6xl px-4 pt-28">
       <Link to="/rooms" className="text-sm text-muted-foreground hover:text-primary">→ كل الغرف</Link>
       <div className="mt-4 grid gap-10 lg:grid-cols-[1fr_360px]">
         <div>

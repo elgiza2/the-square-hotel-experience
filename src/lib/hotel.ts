@@ -5,7 +5,8 @@ const photoModules = import.meta.glob<{ default: { url: string } }>("/src/assets
   eager: true,
 });
 
-export function photo(name: string): string {
+export function photo(name: string | undefined): string {
+  if (!name) return "";
   const mod = photoModules[`/src/assets/hotel/${name}.jpg.asset.json`];
   if (!mod) throw new Error(`Missing hotel photo: ${name}`);
   return mod.default.url;

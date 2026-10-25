@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Prepare an introductory AI prompt covering the hotel website and deferred booking/operations system
 - [x] V1 public booking site: home, rooms, page per room, services/tours, location, about, FAQ, contact (WhatsApp booking requests)
 - [ ] Confirm prices (EGP), room count/sizes, certificates with the hotel — blocked on hotel
 - [ ] English version + redesign rooms, tours and services; remove eyebrows and photo labels; custom booking-step illustration

@@ -5,10 +5,10 @@ import { PageHeader } from "@/components/site/SiteChrome";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: pageMeta(
+    meta: [...pageMeta(
       "About | The Square Boutique Hotel",
       "A boutique hotel in a historic building on Talaat Harb Square, with tours arranged by the hotel.",
-    ),
+    ), { property: "og:image", content: photo("065A8786-1") }, { name: "twitter:image", content: photo("065A8786-1") }],
   }),
   component: AboutPage,
 });
@@ -17,7 +17,7 @@ function AboutPage() {
   return (
     <>
       <PageHeader eyebrow="About" title="A boutique stay. A landmark square." />
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 pb-16 md:grid-cols-2 md:pb-24">
         <div className="space-y-5 leading-8 text-muted-foreground">
           <p>The Square Boutique Hotel is a small boutique hotel in Downtown Cairo, offering a comfortable short stay in the heart of the city.</p>
           <p>The hotel overlooks Talaat Harb Square, surrounded by Downtown Cairo’s historic buildings, within walking distance of Tahrir Square and the Egyptian Museum.</p>

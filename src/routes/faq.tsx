@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { faqs } from "@/lib/hotel";
 import { pageMeta } from "@/lib/seo";
 import { PageHeader } from "@/components/site/SiteChrome";
+import { ChevronDown } from "lucide-react";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -24,10 +25,10 @@ function FaqPage() {
   return (
     <>
       <PageHeader eyebrow="Questions" title="A few things to know." />
-      <div className="mx-auto max-w-3xl divide-y px-4">
+      <div className="mx-auto max-w-3xl px-5 pb-16 md:pb-24">
         {faqs.map((f) => (
-          <details key={f.q} className="group py-5">
-            <summary className="cursor-pointer list-none text-lg text-primary">{f.q}</summary>
+          <details key={f.q} className="group border-b py-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-lg text-primary [&::-webkit-details-marker]:hidden">{f.q}<ChevronDown className="size-5 shrink-0 transition-transform group-open:rotate-180" /></summary>
             <p className="mt-3 leading-8 text-muted-foreground">{f.a}</p>
           </details>
         ))}

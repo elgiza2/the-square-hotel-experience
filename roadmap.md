@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Audit all public pages on desktop and mobile and fix visual issues
 - [x] Redesign each room detail as a sales-focused landing page with real photos and WhatsApp requests
 - [x] Prepare an introductory AI prompt covering the hotel website and deferred booking/operations system
 - [x] V1 public booking site: home, rooms, page per room, services/tours, location, about, FAQ, contact (WhatsApp booking requests)

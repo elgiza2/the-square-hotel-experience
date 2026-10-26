@@ -15,3 +15,4 @@
 - Public language and document direction must match the current user-approved language; SEO/GEO metadata is emitted from each route’s `head()`.
 - Public room/tour listings use shared photo-only cards; listing pages own their layout and filters. Keep verified translated hotel facts in hotel.ts and tour programmes in tours.ts.
 - Booking remains a WhatsApp request pending hotel confirmation; do not present client-only flows as confirmed reservations or AI operations.
+- Individual room routes use a shared, slug-keyed RoomLanding component so room-specific galleries and request fields reset on room navigation.

@@ -14,10 +14,11 @@ export const Route = createFileRoute("/tours/$slug")({
     return { tour };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Tour not found | The Square" }, { name: "robots", content: "noindex" }] };
+    if (!loaderData) return { meta: [...pageMeta("Tour unavailable | The Square Boutique Hotel", "Explore Egypt experiences arranged by The Square Boutique Hotel."), { name: "robots", content: "noindex" }] };
     const { tour } = loaderData;
+    const image = tourPhoto(tour.photos[0]);
     return {
-      meta: pageMeta(`${tour.nameEn} from Downtown Cairo | The Square Boutique Hotel`, `${tour.tagline} ${tour.overview[0]}`.slice(0, 160)),
+      meta: [...pageMeta(`${tour.nameEn} from Downtown Cairo | The Square Boutique Hotel`, `${tour.tagline} ${tour.overview[0]}`.slice(0, 160)), ...(image?.startsWith("https://") ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : [])],
       scripts: [
         {
           type: "application/ld+json",
@@ -53,13 +54,13 @@ function TourPage() {
   const others = tours.filter((t) => t.slug !== tour.slug && t.category === tour.category).slice(0, 3);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pt-28">
+    <div className="mx-auto max-w-6xl px-5 pb-16 pt-28 md:pb-24">
       <Link to="/tours" className="text-sm text-muted-foreground hover:text-primary">← All tours</Link>
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <span className="pill">{categories[tour.category]}</span>
         <span className="pill gap-1"><Clock className="size-3" />{tour.duration}</span>
       </div>
-      <h1 className="mt-3 text-[clamp(30px,4vw,54px)]">{tour.nameEn}</h1>
+      <h1 className="mt-3 text-3xl md:text-5xl">{tour.nameEn}</h1>
       
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_360px]">
@@ -123,7 +124,7 @@ function TourPage() {
         </div>
 
         <aside className="h-fit rounded-lg border bg-card p-6 shadow-sm lg:sticky lg:top-24">
-          <span className="pill">Request this experience</span>
+          <h2 className="text-2xl">Request this experience</h2>
           <p className="mt-3 text-sm text-muted-foreground">Reservations will confirm the price and schedule for your dates and group.</p>
           <div className="mt-5 space-y-3 text-sm">
             <label className="block">Name<input value={name} onChange={(e) => setName(e.target.value)} className="mt-1 w-full rounded-full border bg-background px-4 py-2.5" /></label>
@@ -134,8 +135,8 @@ function TourPage() {
               </select>
             </label>
           </div>
-          <a href={whatsappLink(msg)} target="_blank" rel="noreferrer" className="btn mt-5 w-full">Send request on WhatsApp</a>
-          <a href={`tel:${hotel.phone}`} className="btn-ghost mt-2 w-full" dir="ltr">{hotel.phoneDisplay}</a>
+          <Button asChild className="mt-5 h-auto min-h-10 w-full whitespace-normal rounded-full px-3"><a href={whatsappLink(msg)} target="_blank" rel="noreferrer">Send request on WhatsApp</a></Button>
+          <Button asChild variant="outline" className="mt-2 h-10 w-full rounded-full"><a href={`tel:${hotel.phone}`} dir="ltr">{hotel.phoneDisplay}</a></Button>
           <Link to="/rooms" className="mt-5 block rounded-2xl bg-pill p-4 text-sm text-pill-foreground">
             Still looking for a place to stay? <b>Explore rooms</b> Stay 3 nights or more for complimentary airport transfers.
           </Link>

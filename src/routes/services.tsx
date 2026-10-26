@@ -3,7 +3,7 @@ import { Coffee, Plane, Shirt, Compass, ArrowRight } from "lucide-react";
 import { services, photo, whatsappLink } from "@/lib/hotel";
 import { pageMeta } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-export const Route=createFileRoute('/services')({head:()=>({meta:pageMeta('Services & airport transfers | The Square Boutique Hotel','Daily breakfast, airport transfers for stays of 3 nights or more, laundry and private tours. Plan your stay in Downtown Cairo.')}),component:ServicesPage});
+export const Route=createFileRoute('/services')({head:()=>({meta:[...pageMeta('Services & airport transfers | The Square Boutique Hotel','Daily breakfast, airport transfers for stays of 3 nights or more, laundry and private tours. Plan your stay in Downtown Cairo.'),{property:'og:image',content:photo('065A8788-1')},{name:'twitter:image',content:photo('065A8788-1')}]}),component:ServicesPage});
 const icons=[Plane,Coffee,Shirt,Compass];
 function ServicesPage(){return <>
  <header className="mx-auto max-w-6xl px-5 pb-12 pt-32 md:pt-40"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><h1 className="text-5xl md:text-7xl">A little care.<br /><em>A better stay.</em></h1><p className="max-w-sm leading-7 text-muted-foreground">From your first morning coffee to your next adventure, make yourself at home in Cairo.</p></div></header>

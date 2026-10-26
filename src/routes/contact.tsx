@@ -22,9 +22,9 @@ function ContactPage() {
   return (
     <>
       <PageHeader eyebrow="Contact" title="Let’s plan your stay." intro="Get in touch for room reservations, tours and enquiries." />
-      <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-4 px-5 pb-16 sm:grid-cols-2 lg:grid-cols-3 md:pb-24">
         {items.map((i) => (
-          <a key={i.label} href={i.href} target="_blank" rel="noreferrer" className="rounded-lg border bg-card p-6 hover:border-primary">
+          <a key={i.label} href={i.href} target={i.href.startsWith("https:") ? "_blank" : undefined} rel={i.href.startsWith("https:") ? "noreferrer" : undefined} className="min-w-0 rounded-lg border bg-card p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <i.icon className="size-6 text-accent" />
             <p className="mt-3 text-sm text-muted-foreground">{i.label}</p>
             <p className="mt-1 text-primary break-words" dir={i.ltr ? "ltr" : undefined} >{i.value}</p>

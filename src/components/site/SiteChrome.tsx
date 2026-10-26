@@ -29,7 +29,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-3">
-      <div className="site-nav pointer-events-auto flex items-center gap-6 rounded-full bg-background/90 py-1.5 pe-1.5 ps-4 shadow-sm border backdrop-blur-md lg:gap-8">
+      <div className="site-nav pointer-events-auto flex max-w-full items-center gap-2 rounded-full bg-background/90 py-1.5 pe-1.5 ps-3 shadow-sm border backdrop-blur-md sm:gap-6 sm:ps-4 lg:gap-8">
         <Brand />
         <nav className="hidden items-center gap-5 text-sm lg:flex">
           {nav.map((n) => (
@@ -38,9 +38,9 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <a href={whatsappLink("مرحبًا، أحب أحجز في The Square بوتيك أوتيل.")} target="_blank" rel="noreferrer" className="btn">
+        <Button asChild className="h-10 rounded-full px-3 sm:px-5"><a href={whatsappLink("Hello, I would like to book a stay at The Square Boutique Hotel.")} target="_blank" rel="noreferrer">
           Book a stay
-        </a>
+        </a></Button>
         <Button variant="ghost" size="icon" className="rounded-full lg:hidden" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </Button>
@@ -69,7 +69,7 @@ export function SiteFooter() {
         <nav className="flex flex-wrap gap-5 text-sm">
           {nav.map((n) => <Link key={n.to} to={n.to} className="hover:underline">{n.label}</Link>)}
         </nav>
-        <ul className="space-y-2 text-sm md:justify-self-end">
+        <ul className="min-w-0 space-y-2 text-sm [&_a]:break-all [&_svg]:shrink-0 md:justify-self-end">
           <li className="flex gap-2"><MapPin className="size-4 shrink-0" />{hotel.addressEn}</li>
           <li className="flex gap-2"><Phone className="size-4" /><a href={`tel:${hotel.phone}`} dir="ltr">{hotel.phoneDisplay}</a></li>
           <li className="flex gap-2"><MessageCircle className="size-4" /><a href={`https://wa.me/${hotel.whatsapp}`} dir="ltr">{hotel.whatsappDisplay}</a></li>

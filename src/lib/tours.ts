@@ -850,5 +850,7 @@ const englishCopy = [
 
 export const tours: Tour[] = publishedTours.map((tour) => {
   const copy = englishCopy.find((item) => item.slug === tour.slug);
-  return copy ? { ...tour, ...copy, itinerary: copy.itinerary ?? undefined } : tour;
+  if (!copy) return tour;
+  const { itinerary, ...translated } = copy;
+  return itinerary ? { ...tour, ...translated, itinerary } : { ...tour, ...translated };
 });

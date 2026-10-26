@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/site/SiteChrome";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
-    meta: pageMeta("أسئلة شائعة | ذا سكوير بوتيك أوتيل", "إجابات عن الموقع والفطار وتوصيل المطار والغرف المطلة على الميدان وطريقة الحجز."),
+    meta: pageMeta("Frequently asked questions | The Square Boutique Hotel", "Answers about location, breakfast, airport transfers, rooms and booking your stay."),
     scripts: [
       {
         type: "application/ld+json",
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/faq")({
 function FaqPage() {
   return (
     <>
-      <PageHeader eyebrow="عندك سؤال؟" title="أسئلة شائعة" />
+      <PageHeader eyebrow="Questions" title="A few things to know." />
       <div className="mx-auto max-w-3xl divide-y px-4">
         {faqs.map((f) => (
           <details key={f.q} className="group py-5">

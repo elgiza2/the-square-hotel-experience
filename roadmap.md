@@ -1,9 +1,9 @@
 # Roadmap
-- [ ] Prepare an introductory AI prompt covering the hotel website and deferred booking/operations system
+- [x] Prepare an introductory AI prompt covering the hotel website and deferred booking/operations system
 - [x] V1 public booking site: home, rooms, page per room, services/tours, location, about, FAQ, contact (WhatsApp booking requests)
 - [ ] Confirm prices (EGP), room count/sizes, certificates with the hotel — blocked on hotel
-- [ ] English version + redesign rooms, tours and services; remove eyebrows and photo labels; custom booking-step illustration
-- [ ] Verify and display hotel certificates — only official, verified certificates
+- [x] English version + redesign rooms, tours and services; remove eyebrows and photo labels; custom booking-step illustration
+- [ ] Display hotel certificates — blocked: official site shows generic award logos, including Asia awards; hotel-specific certificates need confirmation
 - [x] Sales-focused redesign (brief style) + detailed page per tour (18 tours)
 - [ ] StayOS management app, AI booking, revenue/availability/issues and negative-review alerts — blocked: user continues to postpone database / Cloud
 - [ ] Guest profiles and auto-created post-confirmation accounts, stay-limited access and review email — blocked: database / Cloud postponed; use secure activation, not emailed passwords
